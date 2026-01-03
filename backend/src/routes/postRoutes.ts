@@ -16,7 +16,7 @@ export function postRoutes(app: Express) {
     schema: CreatePostSchema,
     handler: async (input) => {
       const post = {
-        id: Math.random().toString(36).substr(2, 9),
+        id: Math.random().toString(36).slice(2, 9),
         ...input,
         createdAt: new Date().toISOString()
       };
