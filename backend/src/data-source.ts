@@ -4,7 +4,7 @@ import * as dotenv from "dotenv";
 import { User } from "./entities/User";
 
 // Check if .env exists, otherwise fallback to .env.example
-dotenv.config();
+dotenv.config({ path: "../.env" });
 
 // Configure the TypeORM DataSource
 export const AppDataSource = new DataSource({

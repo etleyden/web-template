@@ -9,7 +9,7 @@ import { AppDataSource } from "./data-source";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.API_PORT || 86;
 
 // Initialize the database connection before starting the server
 AppDataSource.initialize()

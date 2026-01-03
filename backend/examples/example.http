@@ -1,8 +1,8 @@
-GET http://localhost:3000/api/posts
+GET http://localhost:86/api/posts
 
 ###
 
-POST http://localhost:3000/api/users
+POST http://localhost:86/api/users
 Content-Type: application/json
 
 {
@@ -11,4 +11,4 @@ Content-Type: application/json
 }
 
 ### paste your own user id here
-GET http://localhost:3000/api/users/y6855z56n
+GET http://localhost:86/api/users/jgoaeiz62
