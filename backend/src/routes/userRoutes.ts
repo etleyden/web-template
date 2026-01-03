@@ -1,11 +1,12 @@
 import { Express } from 'express';
 import { z } from 'zod';
 import { createEndpoint } from '../utils/createEndpoint';
+import { User } from '../entities/User';
+import { getDB } from '../data-source';
 
 const CreateUserSchema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
-  age: z.number().min(0).optional()
 });
 
 const GetUserSchema = z.object({
@@ -20,12 +21,9 @@ export function userRoutes(app: Express) {
     schema: CreateUserSchema,
     handler: async (input) => {
       // Your business logic here
-      const user = {
-        id: Math.random().toString(36).substr(2, 9),
-        ...input,
-        createdAt: new Date().toISOString()
-      };
-      return user;
+      const db = getDB();
+      const user = await db.save(User, input);
+      return user.id;
     }
   }));
 
@@ -36,11 +34,12 @@ export function userRoutes(app: Express) {
     handler: async (input, req) => {
       const userId = req.params.id;
       // Your business logic here
-      return {
-        id: userId,
-        name: 'John Doe',
-        email: 'john@example.com'
-      };
+      const db = getDB();
+      const user = await db.findOneBy(User, { id: parseInt(userId) });
+      if (!user) {
+        throw new Error('User not found');
+      }
+      return user;
     }
   }));
 }

@@ -11,4 +11,4 @@ Content-Type: application/json
 }
 
 ### paste your own user id here
-GET http://localhost:86/api/users/jgoaeiz62
+GET http://localhost:86/api/users/1

@@ -20,3 +20,6 @@ export const AppDataSource = new DataSource({
     migrations: ["src/migrations/**/*.ts"],
     subscribers: ["src/subscribers/**/*.ts"],
 });
+
+export const getDB = () => 
+    AppDataSource.manager;
