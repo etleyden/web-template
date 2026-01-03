@@ -1,6 +1,6 @@
 import { Express } from 'express';
 import { z } from 'zod';
-import { createEndpoint } from '../utils/createEndpoint.js';
+import { createEndpoint } from '../utils/createEndpoint';
 
 const CreatePostSchema = z.object({
   title: z.string().min(3),

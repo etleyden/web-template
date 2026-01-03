@@ -51,7 +51,8 @@ func main() {
 
 	// Run the TypeScript file watcher
 	fmt.Println("Starting TypeScript file watcher...")
-	tsxCmd := exec.Command("npx", "tsx", "watch", "src/index.ts")
+	// tsxCmd := exec.Command("npx", "ts-node", "watch", "src/index.ts")
+	tsxCmd := exec.Command("nodemon", "--watch", "src/**/*.ts", "--exec", "ts-node src/index.ts")
 	tsxCmd.Stdout = os.Stdout
 	tsxCmd.Stderr = os.Stderr
 	if err := tsxCmd.Run(); err != nil {

@@ -1,13 +1,11 @@
-// Import necessary modules
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 import * as dotenv from "dotenv";
-import { User } from "./entities/User.js";
+import { User } from "./entities/User";
 
 // Check if .env exists, otherwise fallback to .env.example
 dotenv.config();
 
-console.log("Attempting to use password: " + process.env.DB_PASSWORD);
 // Configure the TypeORM DataSource
 export const AppDataSource = new DataSource({
     type: "postgres", // Change to your database type (e.g., mysql, sqlite, etc.)

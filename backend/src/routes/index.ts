@@ -1,6 +1,6 @@
 import { Express } from 'express';
-import { userRoutes } from './userRoutes.js';
-import { postRoutes } from './postRoutes.js';
+import { userRoutes } from './userRoutes';
+import { postRoutes } from './postRoutes';
 
 export function registerRoutes(app: Express) {
   app.get('/health', (req, res) => {
