@@ -4,5 +4,10 @@ This repository serves as a jumping point for building a web application. When i
 
 # Setup
 
-1. In each directory (`frontend`, `backend`), run `npm install`
-2. To start developing, run `npm run dev` in each. 
+1. Run `npm install`
+2. Run `docker-compose up`
+
+If that doesn't work, create an issue and let me know.
+
+
+[Using a repo as a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository)
