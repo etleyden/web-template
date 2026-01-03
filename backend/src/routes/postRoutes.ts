@@ -32,7 +32,7 @@ export function postRoutes(app: Express) {
       return [
         {
           id: '1',
-          title: 'First Post',
+          title: 'First Posts',
           content: 'Hello World',
           authorId: 'user1'
         }

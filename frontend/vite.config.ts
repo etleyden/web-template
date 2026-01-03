@@ -10,4 +10,10 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    host: '0.0.0.0', // Allow access from Docker host
+    watch: {
+      usePolling: true, // Enable polling for file changes
+    },
+  },
 })
