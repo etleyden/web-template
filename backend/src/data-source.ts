@@ -3,8 +3,8 @@ import { DataSource } from "typeorm";
 import * as dotenv from "dotenv";
 import { User } from "./entities/User";
 
-// Check if .env exists, otherwise fallback to .env.example
-dotenv.config({ path: "../.env" });
+// Load environment variables from .env file at root or use environment variables
+dotenv.config({ path: process.env.NODE_ENV === 'production' ? '.env' : '../.env' });
 
 // Configure the TypeORM DataSource
 export const AppDataSource = new DataSource({

@@ -38,9 +38,11 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=${DB_NAME}
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     volumes:
       - ./backend:/app
+      - /app/node_modules
     networks:
       - app_network
 
@@ -55,7 +57,7 @@ services:
       - backend
     volumes:
       - ./frontend:/app
-    command: npm run dev
+      - /app/node_modules
     networks:
       - app_network
 

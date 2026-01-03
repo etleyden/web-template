@@ -4,14 +4,14 @@ FROM node:22
 # Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package.json ./
+# Copy package files
+COPY package*.json ./
 
 # Set environment to development to install devDependencies
 ENV NODE_ENV=development
 
 # Install dependencies (including devDependencies)
-RUN npm install
+RUN npm ci || npm install
 
 # Copy the rest of the application code
 COPY . .
@@ -20,4 +20,4 @@ COPY . .
 EXPOSE 86
 
 # Default command for development
-CMD ["npx", "nodemon", "--watch", "src/**/*.ts", "--exec", "npx ts-node", "src/index.ts"]
+CMD ["npx", "nodemon", "--watch", "src/**/*.ts", "--exec", "npx", "ts-node", "src/index.ts"]

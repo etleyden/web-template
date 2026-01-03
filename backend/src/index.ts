@@ -11,6 +11,16 @@ dotenv.config();
 const app = express();
 const PORT = process.env.API_PORT || 86;
 
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// Register all routes
+registerRoutes(app);
+
+// Error handling middleware (must be last)
+app.use(errorHandler);
+
 // Initialize the database connection before starting the server
 AppDataSource.initialize()
   .then(() => {
@@ -23,13 +33,6 @@ AppDataSource.initialize()
   })
   .catch((error) => {
     console.error("Error during Data Source initialization", error);
+    process.exit(1);
   });
-app.use(cors());
-app.use(express.json());
-
-// Register all routes
-registerRoutes(app);
-
-// Error handling middleware (must be last)
-app.use(errorHandler);
 
